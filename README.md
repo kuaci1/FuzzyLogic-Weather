@@ -1,32 +1,5 @@
-Weather Prediction System Using Machine Learning
-Proyek ini adalah implementasi sistem prediksi cuaca menggunakan berbagai algoritma Machine Learning. Sistem ini dirancang sebagai alternatif dan pengembangan dari metode Fuzzy Logic, dengan tujuan mencapai akurasi prediksi yang jauh lebih tinggi.
-
-Sistem ini mengklasifikasikan kondisi cuaca berdasarkan parameter suhu, kelembapan, dan kecepatan angin.
-
-🚀 Fitur Utama
-Generate Data Otomatis: Script memiliki kemampuan untuk membuat dummy dataset yang realistis jika tidak ada file CSV eksternal.
-
-Preprocessing Data: Penanganan missing values, outliers (menggunakan IQR), normalisasi (MinMaxScaler), dan encoding label.
-
-Multi-Model Comparison: Melatih dan membandingkan 4 algoritma sekaligus.
-
-Visualisasi: Plotting akurasi, Confusion Matrix, dan Feature Importance.
-
-📊 Dataset
-Dataset yang digunakan memiliki fitur sebagai berikut:
-
-Input Features:
-Temperature (°C)
-Humidity (%)
-Wind Speed (km/h)
-
-Target Classes (Label):
-Sunny, Rainy, Cloudy, Windy, Foggy, Hot_Humid, Cold_Windy, Pleasant.
-
-🧠 Model yang Digunakan
-Proyek ini melatih dan mengevaluasi empat algoritma machine learning populer:
-
-Decision Tree Classifier
-Random Forest Classifier
-Support Vector Machine (SVM)
-Gradient Boosting Classifier
+Weather Prediction using Fuzzy Logic SystemsThis repository contains the Final Project for the Artificial Intelligence Fundamentals course (Group 6 - Even Semester 2024/2025).The project implements and compares various Fuzzy Inference Systems (FIS) and Multi-Criteria Decision Making methods to predict weather conditions based on historical weather data.
+Project OverviewThe goal of this project is to predict the weather summary (e.g., Clear, Cloudy, Overcast) using three input variables: Temperature, Humidity, and Wind Speed.
+We implemented and compared four different methods:Fuzzy Mamdani (Min-Max Inference)Fuzzy Sugeno (Linear Output)Fuzzy Tsukamoto (Weighted Average)SAW (Simple Additive Weighting) 
+DatasetThe dataset used is Weather History (e.g., from Szegedin, Hungary 2006-2016).Source: weatherHistory.csvPreprocessing:Handling missing values (Median imputation).Outlier removal using the IQR method.Normalization (MinMaxScaler).Data reduction to focus on top weather labels: Clear, Partly Cloudy, Mostly Cloudy, Overcast. 
+Methodology 1. FuzzificationWe define Trapezoidal Membership Functions (trapmf) for the input variables:Temperature (°C): Cold (Dingin), Normal, Hot (Panas).Humidity (0-1): Low (Rendah), Medium (Sedang), High (Tinggi).Wind Speed (km/h): Weak (Lemah), Medium (Sedang), Strong (Kencang).2. Fuzzy RulesThe system uses a set of linguistic rules, for example:IF Temperature is Hot AND Humidity is Low AND Wind is Weak THEN Weather is Clear.3. Inference MethodsMamdani: Uses Min (AND) for implication and Max (OR) for aggregation.Sugeno: Calculates a crisp score using a linear formula: $Score = 0.6(T) - 0.4(H) - 0.2(W)$.Tsukamoto: Uses monotonic membership functions for outputs and calculates the weighted average.SAW: A scoring method based on normalized benefit/cost attributes.
